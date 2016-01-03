@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "sudo forever start server.js"
   },
   "author": "Rafael 'fumasa' Giorgetti",
   "license": "MIT",

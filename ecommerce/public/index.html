@@ -1,9 +1,24 @@
-<html>
-<head>
-  <title>Wakedown</title>
-</head>
-<body>
-  <h1>Works</h1>
-  <p>Something smart</p>
-</body>
+<!DOCTYPE html>
+<html lang="en" ng-app="store">
+  <head>
+    <meta charset="utf-8">
+    <title>Wakedown</title>
+    <link rel="stylesheet" href="assets/libs/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/libs/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="text/javascript" src="assets/libs/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="assets/libs/angular.min.js"></script>
+    <script src="assets/libs/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="components/store-product/store-product.js"></script>
+  </head>
+  <body ng-controller="StoreController">
+    <h1>Test Store</h1>
+    <ul class="list-group" ng-show="products.length">
+      <li class="list-group-item" ng-repeat="product in products" ng-hide="product.soldOut">
+        <store-product></store-product>
+      </li>
+    </ul>
+    <h4 ng-hide="products.length">Loja Vazia</h4>
+  </body>
 </html>
