@@ -1,0 +1,45 @@
+[{
+  "name": "D20",
+  "price": "2.95",
+  "description": "Some description here",
+  "specification": "Some specification here",
+  "canPurchase": true,
+  "soldOut": false,
+  "images": [
+    "gem-01.gif", 
+    "gem-02.gif"
+  ],
+  "reviews": [
+    { 
+      "author": "author1", 
+      "comment": "Some commment author1 made", 
+      "rate": "5", 
+      "createdOn": "1288323623006"
+    },
+    { 
+      "author": "author2", 
+      "comment": "Some commment author2 made", 
+      "rate": "4.5", 
+      "createdOn": "1288323623006"
+    },
+    { 
+      "author": "author3", 
+      "comment": "Some commment author3 made", 
+      "rate": "4", 
+      "createdOn": "1288323623006"
+    }
+  ]
+},
+{
+  "name": "D12",
+  "price": "1.95",
+  "description": "Some description here",
+  "specification": "Some specification here",
+  "canPurchase": true,
+  "soldOut": false,
+  "images": [
+    "gem-02.gif", 
+    "gem-01.gif"
+  ],
+  "reviews": []
+}]

@@ -1,0 +1,8 @@
+<h4>Reviews</h4>
+<blockquote ng-repeat="review in product.reviews">
+  <strong>Stars: {{review.rate}}</strong> 
+  {{review.comment}}
+  <cite class="clearfix">-{{review.author}} on {{review.createdOn | date : 'yyyy-MM-dd HH:mm'}}</cite>
+  <span ng-click="reviewCtrl.edit(product, review)">edit</span>
+</blockquote>
+<store-review></store-review>

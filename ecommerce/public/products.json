@@ -1,0 +1,47 @@
+[{
+  "sku": "a01",
+  "name": "D20",
+  "price": "2.95",
+  "description": "Some description here",
+  "specification": "Some specification here",
+  "canPurchase": true,
+  "soldOut": false,
+  "images": [
+    "/assets/img/gem-01.gif", 
+    "/assets/img/gem-02.gif"
+  ],
+  "reviews": [
+    { 
+      "author": "author1@teste.org", 
+      "comment": "Some commment author1 made", 
+      "rate": "5", 
+      "createdOn": "1288323623006"
+    },
+    { 
+      "author": "author2@teste.org", 
+      "comment": "Some commment author2 made", 
+      "rate": "4", 
+      "createdOn": "1288323623006"
+    },
+    { 
+      "author": "author3@teste.org", 
+      "comment": "Some commment author3 made", 
+      "rate": "3", 
+      "createdOn": "1288323623006"
+    }
+  ]
+},
+{
+  "sku": "a02",
+  "name": "D12",
+  "price": "1.95",
+  "description": "Some description here",
+  "specification": "Some specification here",
+  "canPurchase": true,
+  "soldOut": false,
+  "images": [
+    "/assets/img/gem-02.gif", 
+    "/assets/img/gem-01.gif"
+  ],
+  "reviews": []
+}]

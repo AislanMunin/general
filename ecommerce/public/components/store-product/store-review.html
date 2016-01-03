@@ -1,0 +1,18 @@
+<form name="reviewForm" ng-submit="reviewForm.$valid && save(product)" novalidate>
+  <h4>Submit a Review</h4>
+  <fieldset class="form-group">
+    <select class="form-control" ng-model="reviewSelected.rate" ng-options="review.rate as rate.label for rate in reviewRates track by rate.value" title="Stars" required>
+    </select>
+  </fieldset>
+  <fieldset class="form-group">
+    <textarea class="form-control" placeholder="Write a short review of the product..." title="Review" ng-model="reviewSelected.comment" required></textarea>
+  </fieldset>
+  <fieldset class="form-group">
+    <input type="email" class="form-control" placeholder="rafael@fumasa.org" title="Email" ng-model="reviewSelected.author" required/>
+  </fieldset>
+  <fieldset class="form-group">
+    <div> reviewForm is {{reviewForm.$valid}} </div>
+    <input type="submit" class="btn btn-primary pull-right" value="{{ isEdit ? 'Update' : 'Add' }}" />
+    <input type="button" class="btn pull-right" value="Cancel" ng-click="reviewCtrl.clear()" />
+  </fieldset>
+</form>
