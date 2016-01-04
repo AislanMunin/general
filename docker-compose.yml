@@ -1,0 +1,6 @@
+lares:
+  build: ./lares
+  ports:
+    - "8080:8080"
+  volumes:
+    - /vagrant/lares:/var/lares

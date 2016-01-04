@@ -1,0 +1,10 @@
+set nocompatible
+set backspace=indent,eol,start
+set backup
+set history=50
+set ruler
+set background=dark
+set showcmd
+set incsearch
+syntax on
+set hlsearch
