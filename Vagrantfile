@@ -1,15 +1,36 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+unless Vagrant.has_plugin?("vagrant-docker-compose")
+  system("vagrant plugin install vagrant-docker-compose")
+  puts "Dependencies installed, please try the command again."
+  exit
+end
+
+VAGRANTFILE_API_VERSION = "2"
+
 Vagrant.configure(2) do |config|
-  config.vm.box = "node"
-  config.vm.box_url = "../node-devenv2.box"
-  config.vm.hostname = "node-devenv"
-  config.ssh.forward_agent = true
-  # config.vm.network "forwarded_port", guest: 3000, host: 8080
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  
+  config.vm.box = "box-cutter/ubuntu1504-docker" #"ubuntu/trusty64"
   config.vm.network "public_network"
-  config.push.define "atlas" do |push|
-   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
-  end
-  config.vm.provider "virtualbox" do |v|
-    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
-  end
+  #config.vm.network "private_network", ip: "192.168.50.100"
+  config.vm.hostname = "lares-devenv"
+  config.ssh.forward_agent = true
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+  
+  ########### prod env setup - begin ##############
+  #config.vm.provision :docker
+  #config.vm.provision :docker_compose, yml: "/vagrant/docker-compose.yml", rebuild: true, project_name: "lares", run: "always"
+  ########### prod env setup - end ################
+
+  ########### dev env setup - begin ###############
+  config.vm.provision :shell, inline: "apt-get update"
+  config.vm.provision :shell, inline: "apt-get -y install nodejs build-essential nodejs-legacy npm git git-core vim zsh"
+  config.vm.provision :shell, privileged: false,
+    inline: "if [ ! -d ~/.oh-my-zsh ]; then git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; fi"
+  config.vm.provision "file", source: ".zshrc", destination: ".zshrc"
+  config.vm.provision "file", source: ".gitconfig", destination: ".gitconfig"
+  config.vm.provision "file", source: ".vimrc", destination: ".vimrc"
+  config.vm.provision :shell, inline: "chsh -s /bin/zsh vagrant"
+  ########### dev env setup - end #################
 end
