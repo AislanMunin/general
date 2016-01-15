@@ -2,15 +2,10 @@
   "name": "seed-angular2",
   "version": "0.0.1",
   "description": "minimal seed for angular2 project",
-  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "lite": "lite-server --port 8080",
-    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
+    "start": "npm run lite",
+    "lite": "lite-server"
   },
-  "author": "Rafael 'fumasa' Giorgetti",
   "license": "MIT",
   "dependencies": {
     "angular2": "2.0.0-beta.0",
@@ -22,8 +17,6 @@
     "zone.js": "0.5.10"
   },
   "devDependencies": {
-    "concurrently": "^1.0.0",
-    "lite-server": "^1.3.1",
-    "typescript": "^1.7.3"
+    "lite-server": "^1.3.1"
   }
 }

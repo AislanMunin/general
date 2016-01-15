@@ -1,20 +1,20 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-unless Vagrant.has_plugin?("vagrant-docker-compose")
-  system("vagrant plugin install vagrant-docker-compose")
-  puts "Dependencies installed, please try the command again."
-  exit
-end
+#unless Vagrant.has_plugin?("vagrant-docker-compose")
+#  system("vagrant plugin install vagrant-docker-compose")
+#  puts "Dependencies installed, please try the command again."
+#  exit
+#end
 
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(2) do |config|
   
-  config.vm.box = "box-cutter/ubuntu1504-docker" #"ubuntu/trusty64"
+  config.vm.box = "ubuntu/trusty64"
   config.vm.network "public_network"
   #config.vm.network "private_network", ip: "192.168.50.100"
-  config.vm.hostname = "lares-devenv"
+  config.vm.hostname = "devenv"
   config.ssh.forward_agent = true
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   
@@ -24,8 +24,10 @@ Vagrant.configure(2) do |config|
   ########### prod env setup - end ################
 
   ########### dev env setup - begin ###############
+  #config.vm.provision :shell, inline: "rm /var/lib/apt/lists/* -vf"
+  config.vm.provision :shell, inline: "curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -"
   config.vm.provision :shell, inline: "apt-get update"
-  config.vm.provision :shell, inline: "apt-get -y install nodejs build-essential nodejs-legacy npm git git-core vim zsh"
+  config.vm.provision :shell, inline: "apt-get -y install nodejs build-essential git git-core vim zsh"
   config.vm.provision :shell, privileged: false,
     inline: "if [ ! -d ~/.oh-my-zsh ]; then git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; fi"
   config.vm.provision "file", source: ".zshrc", destination: ".zshrc"
