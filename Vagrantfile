@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
   #config.vm.provision :shell, inline: "rm /var/lib/apt/lists/* -vf"
   config.vm.provision :shell, inline: "curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -"
   config.vm.provision :shell, inline: "apt-get update"
-  config.vm.provision :shell, inline: "apt-get -y install nodejs build-essential git git-core vim zsh"
+  config.vm.provision :shell, inline: "apt-get -y install nodejs build-essential git git-core vim zsh tmux"
   config.vm.provision :shell, privileged: false,
     inline: "if [ ! -d ~/.oh-my-zsh ]; then git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; fi"
   config.vm.provision "file", source: ".zshrc", destination: ".zshrc"

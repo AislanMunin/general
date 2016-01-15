@@ -1,1 +1,0 @@
-window.angular = require('angular');
