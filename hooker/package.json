@@ -1,0 +1,17 @@
+{
+  "name": "wakedown-hooker",
+  "version": "1.0.0",
+  "description": "An GitHub WebHook webservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webhook"
+  ],
+  "author": "Rafael 'fumasa' Giorgetti",
+  "license": "MIT",
+  "dependencies": {
+    "hookshot": "^0.1.0"
+  }
+}
