@@ -3,7 +3,7 @@
 # description: Hooker Application Upstart, using Forever
 
 
-APPHOME=/var/www/hooker
+APPHOME=/var/www/general/hooker
 APPSCRIPT=index.js
 
 PATH=/usr/bin:/sbin:/bin:/usr/sbin
