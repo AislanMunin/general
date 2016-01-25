@@ -24,15 +24,14 @@ Vagrant.configure(2) do |config|
   ########### prod env setup - end ################
 
   ########### dev env setup - begin ###############
-  #config.vm.provision :shell, inline: "rm /var/lib/apt/lists/* -vf"
   config.vm.provision :shell, inline: "curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -"
-  #config.vm.provision :shell, inline: "apt-get update"
-  config.vm.provision :shell, inline: "apt-get -y install nodejs build-essential git git-core vim zsh tmux"
+  config.vm.provision :shell, inline: "apt-get -y install nodejs"
+  config.vm.provision :shell, inline: "apt-get -y install build-essential git git-core vim zsh tmux"
+  config.vm.provision :shell, inline: "npm install bower gulp -g"
+  config.vm.provision :shell, inline: "gem install tmuxinator"
   config.vm.provision :shell, privileged: false,
     inline: "if [ ! -d ~/.oh-my-zsh ]; then git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; fi"
-  config.vm.provision "file", source: ".zshrc", destination: ".zshrc"
-  config.vm.provision "file", source: ".gitconfig", destination: ".gitconfig"
-  config.vm.provision "file", source: ".vimrc", destination: ".vimrc"
+  config.vm.provision :shell, inline: 'cp -rT /vagrant/dotfiles /home/vagrant'
   config.vm.provision :shell, inline: "chsh -s /bin/zsh vagrant"
   ########### dev env setup - end #################
 end

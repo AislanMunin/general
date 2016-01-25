@@ -1,0 +1,16 @@
+// Add custom font
+@import url(https://fonts.googleapis.com/css?family=Oswald|Archivo+Narrow:400,400italic,700);
+$font-family-base: 'Archivo', sans-serif;
+
+// Import bootstrap and fontawesome
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../../bower_components/fontawesome/scss/font-awesome";
+
+// Bootstrap Starter Template Styles
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
