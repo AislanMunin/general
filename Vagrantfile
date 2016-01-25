@@ -28,6 +28,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, inline: "apt-get -y install nodejs"
   config.vm.provision :shell, inline: "apt-get -y install build-essential git git-core vim zsh tmux"
   config.vm.provision :shell, inline: "npm install bower gulp -g"
+  config.vm.provision :shell, inline: "npm install npm -g"
+  config.vm.provision :shell, inline: "npm install brunch -g"
   config.vm.provision :shell, inline: "gem install tmuxinator"
   config.vm.provision :shell, privileged: false,
     inline: "if [ ! -d ~/.oh-my-zsh ]; then git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; fi"
