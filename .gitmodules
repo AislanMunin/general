@@ -1,0 +1,3 @@
+[submodule "seed-ghost"]
+	path = seed-ghost
+	url = git://github.com/tryghost/ghost.git
