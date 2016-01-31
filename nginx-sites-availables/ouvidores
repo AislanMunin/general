@@ -1,0 +1,14 @@
+
+server {
+	listen 80 ;
+	#listen [::]:80 default_server ipv6only=on;
+
+	root /var/www/ouvidores;
+	index index.html;
+
+	server_name ouvidoresassociados.com.br;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
