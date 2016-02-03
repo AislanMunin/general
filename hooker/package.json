@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "forever start index.js",
+    "start": "forever start --uid=\"hooker\" index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
